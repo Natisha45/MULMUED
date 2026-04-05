@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog & News - MULUMED Trading PLC</title>
+    <link rel="stylesheet" href="Styles/global.css">
+</head>
+
+<body>
+<div data-include="components/header.html"></div>
+<main class="blog-page">
+    <div class="container">
+
+        <!-- Header -->
+        <div class="blog-header">
+            <h1>Latest News & Updates</h1>
+            <p>Stay informed with the latest developments</p>
+        </div>
+
+        <!-- Filter -->
+        <div class="category-filter">
+            <button class="filter-btn active" data-category="all">All</button>
+            <button class="filter-btn" data-category="healthcare">Healthcare</button>
+            <button class="filter-btn" data-category="products">Products</button>
+        </div>
+
+        <!-- Blog Grid -->
+        <div class="blog-grid">
+
+            <!-- Card 1 -->
+            <article class="blog-card" data-category="healthcare">
+                <div class="blog-card-image">
+                    <img src="./assets/coronavirus-vaccine-bottles.webp" alt="">
+                </div>
+                <div class="blog-card-content">
+                    <h3>Essential Medicines Update</h3>
+                    <p>New stock of antibiotics and antimalarials available.</p>
+                </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="blog-card" data-category="healthcare">
+                <div class="blog-card-image">
+                    <img src="./assets/expensive-medicine-world.webp" alt="">
+                </div>
+                <div class="blog-card-content">
+                    <h3>Hospital Supplies Arrival</h3>
+                    <p>IV fluids, syringes, and gloves now in stock.</p>
+                </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="blog-card" data-category="healthcare">
+                <div class="blog-card-image">
+                    <img src="./assets/hand-holding-medicine-capsule-pack.webp" alt="">
+                </div>
+                <div class="blog-card-content">
+                    <h3>Healthcare Innovation</h3>
+                    <p>Introducing new diagnostic equipment.</p>
+                </div>
+            </article>
+
+            <!-- Card 4 -->
+            <article class="blog-card" data-category="healthcare">
+                <div class="blog-card-image">
+                    <img src="./assets/metformin.webp" alt="">
+                </div>
+                <div class="blog-card-content">
+                    <h3>Partnership Announcement</h3>
+                    <p>New collaboration with global manufacturers.</p>
+                </div>
+            </article>
+
+            <!-- Card 5 -->
+            <article class="blog-card" data-category="products">
+                <div class="blog-card-image">
+                    <img src="./assets/PharmaceuticalWholesaleDistributorsInIndia.webp" alt="">
+                </div>
+                <div class="blog-card-content">
+                    <h3>Quality Assurance Update</h3>
+                    <p>All products meet WHO standards.</p>
+                </div>
+            </article>
+
+            <!-- Card 6 -->
+            <article class="blog-card" data-category="products">
+                <div class="blog-card-image">
+                    <img src="./assets/stock-photo-vaccine.webp" alt="">
+                </div>
+                <div class="blog-card-content">
+                    <h3>OTC Products Expansion</h3>
+                    <p>New vitamins and supplements available.</p>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</main>
+
+<!-- JS -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const buttons = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.blog-card');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const category = button.getAttribute('data-category');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      cards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+
+        if (category === 'all' || category === cardCategory) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+});
+</script>
+<div data-include="components/footer.html"></div>
+ <script src="Import.js"></script>
+</body>
+</html>
